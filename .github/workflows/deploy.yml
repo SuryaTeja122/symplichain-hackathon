@@ -1,4 +1,4 @@
-name: Deploy Django App
+name: Demo CI Pipeline
 
 on:
   push:
@@ -7,27 +7,21 @@ on:
       - staging
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.10
+    - name: Show Files
+      run: ls -la
 
-    - name: Install Dependencies
-      run: |
-        pip install -r requirements.txt
+    - name: Simulate Install
+      run: echo "Installing dependencies..."
 
-    - name: Run Tests
-      run: |
-        echo "Running tests..."
-        # python manage.py test
+    - name: Simulate Tests
+      run: echo "Running tests..."
 
-    - name: Deploy to EC2
-      run: |
-        echo "Deploying to EC2..."
+    - name: Simulate Deploy
+      run: echo "Deploying to EC2..."
